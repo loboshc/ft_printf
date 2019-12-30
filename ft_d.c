@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 15:43:15 by dlobos-m          #+#    #+#             */
-/*   Updated: 2019/12/27 21:07:33 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2019/12/30 14:48:24 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	parse_and_print_lessd(t_listpf *p)
 	}
 }
 
-int		calculated(int *realspace, char *temp, int *aux, t_listpf *p)
+void	calculated(int *realspace, char *temp, int *aux, t_listpf *p)
 {
 	int len;
 
@@ -44,13 +44,12 @@ int		calculated(int *realspace, char *temp, int *aux, t_listpf *p)
 	len = ft_strlen(temp);
 	free(temp);
 	temp = NULL;
-	if (*aux < 0)
+	if (*aux < 0 && p->ns == 0)
 		len--;
 	if (p->ns != 0)
-		*realspace = (aux < 0) ? (p->ns - len) + 1 : (p->ns - len);
+		*realspace =  p->ns - len;
 	else
 		*realspace = p->n_sp - len;
-	return (len);
 }
 
 void	ft_negative(int *aux)
@@ -63,12 +62,11 @@ void	parse_and_printd(t_listpf *p)
 {
 	int		aux;
 	char	*temp;
-	int		len;
 	int		realspace;
 
 	temp = NULL;
 	aux = va_arg(p->ap, int);
-	len = calculated(&realspace, temp, &aux, p);
+	calculated(&realspace, temp, &aux, p);
 	while (realspace > 0)
 	{
 		if (p->zeros == 1 || (p->point == 1 && p->ns == 0))
