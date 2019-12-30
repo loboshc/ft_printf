@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 19:20:07 by dlobos-m          #+#    #+#             */
-/*   Updated: 2019/12/30 17:02:54 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2019/12/30 18:53:59 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 #include "libft.h"
 int		main()
 {	
-	int i = 10;
-	int c = -125448;
+	//int i = 10;
+	//int c = -125448;
 	
-	char	ch = 'a';
-	char	cj = 'h';
+	//char	ch = 'a';
+	//char	cj = 'h';
 
-	
+	char *s = "Hola";
 	
 	/*PRUEBAS CON D, I*/ 
-	
+	/*
 	printf("test 1\n");
 	ft_printf("M: %d$\n", c);
 	printf("O: %d$\n\n",c);//1
@@ -129,7 +129,29 @@ int		main()
 	ft_printf("TEST 7\n");
 	ft_printf("M: %-*c$ %-*c$\n", 10,ch, 5, cj);
 	printf("0: %-*c$ %-*c$\n\n", 10,ch, 5, cj);
-	
+	*/
 
+	/*TEST DE S*/
+	
+	ft_printf("TEST 1\n");
+	ft_printf("%s$\n", s);
+	printf("%s$\n\n", s);
+	
+	ft_printf("TEST 2\n");
+	ft_printf("%5s$\n", s);
+	printf("%5s$\n\n", s);
+
+	ft_printf("TEST 3\n");
+	ft_printf("%*s$\n", 5,s);
+	printf("%*s$\n\n", 5,s);
+
+	ft_printf("TEST 4\n");
+	ft_printf("%.1s$\n", s);
+	printf("%.1s$\n\n", s);
+
+	ft_printf("TEST 5\n");
+	ft_printf("%.17s$\n", s);
+	printf("%.17s$\n\n", s);
+	
 	return (0);
 }
