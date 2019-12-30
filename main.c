@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 19:20:07 by dlobos-m          #+#    #+#             */
-/*   Updated: 2019/12/30 14:48:27 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2019/12/30 17:02:54 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,14 @@
 int		main()
 {	
 	int i = 10;
-	int c = -1;
+	int c = -125448;
 	
+	char	ch = 'a';
+	char	cj = 'h';
+
+	
+	
+	/*PRUEBAS CON D, I*/ 
 	
 	printf("test 1\n");
 	ft_printf("M: %d$\n", c);
@@ -96,5 +102,34 @@ int		main()
 	printf("O: %9.*d$\n\n", 10,c);// 19
 
 	
+	ft_printf("TEST 1\n");
+	ft_printf("M: %c$ %c$\n", ch, cj);
+	printf("O: %c$ %c$\n\n",  ch, cj);
+
+	ft_printf("TEST 2\n");
+	ft_printf("M: %c$\n", ch);
+	printf("O: %c$\n\n",  ch);
+
+	ft_printf("TEST 3\n");
+	ft_printf("M: %10c$ %5c$\n", ch, cj);
+	printf("O: %10c$ %5c$\n\n",  ch, cj);
+
+	ft_printf("TEST 4\n");
+	ft_printf("M: %*c$ %*c$\n", 10, ch, 5, cj);
+	printf("O: %*c$ %*c$\n\n", 10, ch, 5, cj);
+
+	ft_printf("TEST 5\n");
+	ft_printf("M: %-5c$\n", ch);
+	printf("O: %-5c$\n\n", ch);
+
+	ft_printf("TEST 6\n");
+	ft_printf("M: %-*c$\n", 10,ch);
+	printf("0: %-*c$\n\n", 10,ch);
+
+	ft_printf("TEST 7\n");
+	ft_printf("M: %-*c$ %-*c$\n", 10,ch, 5, cj);
+	printf("0: %-*c$ %-*c$\n\n", 10,ch, 5, cj);
+	
+
 	return (0);
 }

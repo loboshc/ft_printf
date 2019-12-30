@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 18:25:16 by dlobos-m          #+#    #+#             */
-/*   Updated: 2019/12/27 17:26:18 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2019/12/30 15:28:27 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,5 @@ void			ft_putnbr_ptf(int n);
 void 			parse_and_printd(t_listpf *p);
 void			parse_and_print_lessd(t_listpf *p);
 void			write_and_parsed(t_listpf *p);
+void			write_and_parse_c(t_listpf *p);
 #endif
