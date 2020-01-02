@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 14:59:52 by dlobos-m          #+#    #+#             */
-/*   Updated: 2019/12/30 14:48:26 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2019/12/30 14:50:06 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	save_data_num_point(t_listpf *p, const char *s)
 	i = 0;
 	if (s[p->i] == '*')
 	{
-		p->n_sp= va_arg(p->ap, int);
+		p->n_sp = va_arg(p->ap, int);
 		p->i++;
 		return ;
 	}

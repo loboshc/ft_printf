@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 18:25:16 by dlobos-m          #+#    #+#             */
-/*   Updated: 2019/12/30 17:24:08 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/02 20:21:19 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,6 @@ void			parse_and_print_lessd(t_listpf *p);
 void			write_and_parsed(t_listpf *p);
 void			write_and_parse_c(t_listpf *p);
 void			write_and_parse_s(t_listpf *p);
+char			*ft_hexa(int n);
+char			*ft_itoahex(int n);
 #endif

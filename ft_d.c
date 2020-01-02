@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 15:43:15 by dlobos-m          #+#    #+#             */
-/*   Updated: 2019/12/30 14:48:24 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2019/12/30 14:50:38 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	calculated(int *realspace, char *temp, int *aux, t_listpf *p)
 	if (*aux < 0 && p->ns == 0)
 		len--;
 	if (p->ns != 0)
-		*realspace =  p->ns - len;
+		*realspace = p->ns - len;
 	else
 		*realspace = p->n_sp - len;
 }

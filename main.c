@@ -6,22 +6,23 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 19:20:07 by dlobos-m          #+#    #+#             */
-/*   Updated: 2019/12/30 18:53:59 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/02 20:22:47 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 #include "libft.h"
+
 int		main()
 {	
-	//int i = 10;
+	unsigned int i = -255;
 	//int c = -125448;
 	
 	//char	ch = 'a';
 	//char	cj = 'h';
 
-	char *s = "Hola";
+	//char *s = "Hola";
 	
 	/*PRUEBAS CON D, I*/ 
 	/*
@@ -101,7 +102,8 @@ int		main()
 	ft_printf("M: %9.*d$\n",10,c);
 	printf("O: %9.*d$\n\n", 10,c);// 19
 
-	
+	PRUEBA CON C*/
+	/*
 	ft_printf("TEST 1\n");
 	ft_printf("M: %c$ %c$\n", ch, cj);
 	printf("O: %c$ %c$\n\n",  ch, cj);
@@ -129,29 +131,108 @@ int		main()
 	ft_printf("TEST 7\n");
 	ft_printf("M: %-*c$ %-*c$\n", 10,ch, 5, cj);
 	printf("0: %-*c$ %-*c$\n\n", 10,ch, 5, cj);
-	*/
 
-	/*TEST DE S*/
+
+	TEST DE S*/
 	
+	/*
 	ft_printf("TEST 1\n");
-	ft_printf("%s$\n", s);
-	printf("%s$\n\n", s);
+	ft_printf("M: %s$\n", s);
+	printf("O: %s$\n\n", s);
 	
 	ft_printf("TEST 2\n");
-	ft_printf("%5s$\n", s);
-	printf("%5s$\n\n", s);
+	ft_printf("M: %5s$\n", s);
+	printf("O: %5s$\n\n", s);
 
 	ft_printf("TEST 3\n");
-	ft_printf("%*s$\n", 5,s);
-	printf("%*s$\n\n", 5,s);
+	ft_printf("M: %*s$\n", 5,s);
+	printf("O: %*s$\n\n", 5,s);
 
 	ft_printf("TEST 4\n");
-	ft_printf("%.1s$\n", s);
-	printf("%.1s$\n\n", s);
+	ft_printf("M: %.1s$\n", s);
+	printf("O: %.1s$\n\n", s);
+
+	ft_printf("TEST 4.1\n");
+	ft_printf("M: %.2s$\n", s);
+	printf("O: %.2s$\n\n", s);
+
 
 	ft_printf("TEST 5\n");
-	ft_printf("%.17s$\n", s);
-	printf("%.17s$\n\n", s);
+	ft_printf("M: %.17s$\n", s);
+	printf("O: %.17s$\n\n", s);
+
+	ft_printf("TEST 6\n");
+	ft_printf("M: %18.17s$\n", s);
+	printf("O: %18.17s$\n\n", s);
+
+	ft_printf("TEST 7\n");
+	ft_printf("M: %17.18s$\n", s);
+	printf("O: %17.18s$\n\n", s);
+
+	ft_printf("TEST 8\n");
+	ft_printf("M: %-15s$\n", s);
+	printf("O: %-15s$\n\n", s);
+
+	ft_printf("TEST 9\n");
+	ft_printf("M: %-1s$\n", s);
+	printf("O: %-1s$\n\n", s);
+
+	ft_printf("TEST 10\n");
+	ft_printf("M: %-*s$\n", 5,s);
+	printf("O: %-*s$\n\n", 5,s);
+
+	ft_printf("TEST 11\n");
+	ft_printf("M: %-*s$\n", 4,s);
+	printf("O: %-*s$\n\n", 4,s);
+
+	ft_printf("TEST 12\n");
+	ft_printf("M: %-18.17s$\n", s);
+	printf("O: %-18.17s$\n\n", s);
+
+	ft_printf("TEST 13\n");
+	ft_printf("M: %-*.*s$\n",18, 17, s);
+	printf("O: %-*.*s$\n\n", 18, 17, s);
 	
+	ft_printf("TEST 14\n");
+	ft_printf("M: %-*.*s$\n",18, 1, s);
+	printf("O: %-*.*s$\n\n", 18, 1, s);
+
+	ft_printf("TEST 15\n");
+	ft_printf("M: %*.*s$\n",18, 17, s);
+	printf("O: %*.*s$\n\n", 18, 17, s);
+
+	ft_printf("TEST 16\n");
+	ft_printf("M: %*.*s$\n",18, 1, s);
+	printf("O: %*.*s$\n\n", 18, 1, s);
+
+	ft_printf("TEST 17\n");
+	ft_printf("M: %*.*s$\n",18, 3, s);
+	printf("O: %*.*s$\n\n", 18, 3, s);
+
+	ft_printf("TEST 18\n");
+	ft_printf("M: %-*.*s$\n",18, 19, s);
+	printf("O: %-*.*s$\n\n", 18, 19, s);
+
+	ft_printf("TEST 18\n");
+	ft_printf("M: %-*.*s$\n",	18, 19, s);
+	printf("O: %-*.*s$\n\n", 18, 19, s);
+*/
+	
+	printf("%x$\n\n", i);
+
+	printf("%5x$\n\n", i);
+
+	printf("%*x$\n\n", 5,i);
+
+	printf("%-x$\n\n",i);
+
+	printf("%-5x$\n\n",i);
+
+	printf("%-*x$\n\n", 5,i);
+
+	printf("%.7x$\n\n",i);
+
+	printf("%-*x$\n\n", 5,i);
+
 	return (0);
 }

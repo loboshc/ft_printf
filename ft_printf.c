@@ -6,12 +6,59 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 18:28:28 by dlobos-m          #+#    #+#             */
-/*   Updated: 2019/12/30 14:48:21 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/02 20:22:40 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
+
+int		numcarhex(long int n)
+{
+	long int i;
+
+	i = 0;
+	if (n == 0)
+	{
+		i = 1;
+		return (i);
+	}
+	if (n < 0)
+	{
+		n *= -1;
+		i++;
+	}
+	while (n > 0)
+	{
+		n /= 16;
+		i++;
+	}
+	return (i);
+}
+
+char	*ft_itoahex(int n)
+{
+	long int		i;
+	char			*pnt;
+	unsigned int	num;
+
+	num = (long int)n;
+	i = numcarhex(num);
+	if (!(pnt = malloc((i + 1) * sizeof(char))))
+		return (0);
+	pnt[i] = '\0';
+	pnt[0] = '0';
+	while (i-- > 0)
+	{
+		if (num % 16 < 10)
+			pnt[i] = (num % 16) + '0';
+		else if (num % 16 >= 10)
+			pnt[i] = (num % 16) + 87;
+		num = num / 16;
+	}
+	return (pnt);
+}
+
 void	ft_putnbr_ptf(int n)
 {
 	char i;
@@ -36,8 +83,12 @@ void	write_and_parse(const char *s, t_listpf *p)
 {
 	if (*s == 'd' || *s == 'i')
 		write_and_parsed(p);
-	if (*s == 's' || *s == 'S')
-	{}
+	if (*s == 's')
+		write_and_parse_s(p);
+	if (*s ==  'c')
+		write_and_parse_c(p);
+	if (*s == 'x')
+		{}//write_and_parse_x(p);
 }
 
 void	put_valors(t_listpf *p)
@@ -49,6 +100,7 @@ void	put_valors(t_listpf *p)
 	p->zeros = 0;
 	p->len = 0;
 	p->n_sp = 0;
+	p->realspace = 0;
 }
 
 int		ft_printf(const char *s, ...)
