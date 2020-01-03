@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 18:25:16 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/02 20:21:19 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/03 16:50:34 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 typedef struct	s_listpf
 {
-	char *string; // cargo una cadena para modificarla
+	char *aux; // aux
 	va_list ap;
 	int zeros; // indicador para saber si tengo que rellenar con ceros o no;
 	int less; // para el flag '-'. 0 no hay, 1 si hay.
@@ -42,6 +42,7 @@ void			parse_and_print_lessd(t_listpf *p);
 void			write_and_parsed(t_listpf *p);
 void			write_and_parse_c(t_listpf *p);
 void			write_and_parse_s(t_listpf *p);
-char			*ft_hexa(int n);
+void			write_and_parse_x(t_listpf *p);
 char			*ft_itoahex(int n);
+void			print_spaces(int realspace, t_listpf *p);
 #endif

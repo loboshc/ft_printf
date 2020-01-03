@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 18:28:28 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/02 20:22:40 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/03 20:10:41 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	write_and_parse(const char *s, t_listpf *p)
 	if (*s ==  'c')
 		write_and_parse_c(p);
 	if (*s == 'x')
-		{}//write_and_parse_x(p);
+		write_and_parse_x(p);
 }
 
 void	put_valors(t_listpf *p)
@@ -101,6 +101,7 @@ void	put_valors(t_listpf *p)
 	p->len = 0;
 	p->n_sp = 0;
 	p->realspace = 0;
+	p->aux = NULL;
 }
 
 int		ft_printf(const char *s, ...)

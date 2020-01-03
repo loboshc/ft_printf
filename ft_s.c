@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/30 17:24:24 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/02 20:22:41 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/03 20:10:43 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int		calculate(t_listpf *p)
 {
 	int	len;
 
-	p->string = va_arg(p->ap, char*);
-	len = ft_strlen(p->string);
+	p->aux = va_arg(p->ap, char*);
+	len = ft_strlen(p->aux);
 	if ((p->n_sp > 0 && p->ns != 0) && (p->n_sp < p->ns))
 	{
 		if (p->n_sp < len)
@@ -58,9 +58,9 @@ void	write_and_parse_s(t_listpf *p)
 		total = p->n_sp;
 	else
 		total = len;
-	while (p->realspace != total && p->string[i] != '\0')
+	while (p->realspace != total && p->aux[i] != '\0')
 	{
-		write(1, &p->string[i], 1);
+		write(1, &p->aux[i], 1);
 		i++;
 		p->realspace++;
 	}
