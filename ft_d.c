@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 15:43:15 by dlobos-m          #+#    #+#             */
-/*   Updated: 2019/12/30 14:50:38 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/07 19:10:47 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,14 @@ void	parse_and_print_lessd(t_listpf *p)
 		free(temp);
 		temp = NULL;
 		realspace = p->ns - len;
-		ft_putnbr_fd(aux, 1);
+		if (p->point == 1 && p->n_sp == 0)
+			realspace = p->ns;
+		else
+			ft_putnbr_fd(aux, 1, p);
 		while (realspace > 0)
 		{
 			write(1, " ", 1);
+			p->len++;
 			realspace--;
 		}
 	}
@@ -46,15 +50,18 @@ void	calculated(int *realspace, char *temp, int *aux, t_listpf *p)
 	temp = NULL;
 	if (*aux < 0 && p->ns == 0)
 		len--;
-	if (p->ns != 0)
+	if (*aux == 0 && p->point == 1 && p->n_sp == 0)
+		*realspace = p->ns;
+	else if (p->ns != 0)
 		*realspace = p->ns - len;
 	else
 		*realspace = p->n_sp - len;
 }
 
-void	ft_negative(int *aux)
+void	ft_negative(int *aux, t_listpf *p)
 {
 	write(1, "-", 1);
+	p->len++;
 	*aux *= (-1);
 }
 
@@ -72,14 +79,17 @@ void	parse_and_printd(t_listpf *p)
 		if (p->zeros == 1 || (p->point == 1 && p->ns == 0))
 		{
 			if (aux < 0)
-				ft_negative(&aux);
-			write(1, "0", 1);
+				ft_negative(&aux, p);
+			ft_putchar_fd('0', p);
 		}
 		else
-			write(1, " ", 1);
+			ft_putchar_fd(' ', p);
 		realspace--;
 	}
 	if (aux < 0)
-		write(1, "-", 1);
-	ft_putnbr_ptf(aux);
+		ft_putchar_fd('-', p);
+	if (p->point == 1 && p->n_sp == 0)
+		return ;
+	else
+		ft_putnbr_ptf(aux, p);
 }

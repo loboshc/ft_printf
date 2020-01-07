@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/30 17:24:24 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/03 20:10:43 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/07 15:38:43 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	write_and_parse_s(t_listpf *p)
 	while (p->realspace != total && p->aux[i] != '\0')
 	{
 		write(1, &p->aux[i], 1);
+		p->len++;
 		i++;
 		p->realspace++;
 	}

@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 14:59:52 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/03 20:10:40 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/07 18:09:36 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ void	save_data_num_point(t_listpf *p, const char *s)
 	aux = ft_strlen(temp);
 	while (s[p->i] == '0')
 		p->i++;
-	p->i += aux;
+	if (p->n_sp != 0)
+		p->i += aux;
 	free(temp);
 	temp = NULL;
 }

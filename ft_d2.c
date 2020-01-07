@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 16:10:36 by dlobos-m          #+#    #+#             */
-/*   Updated: 2019/12/30 14:48:22 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/07 19:10:46 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,19 @@ void	print2(t_listpf *p, int *realspace, int *aux, int *len)
 	while (*realspace > 0)
 	{
 		write(1, " ", 1);
+		p->len++;
 		(*realspace)--;
 	}
 	if (*aux < 0)
 	{
 		write(1, "-", 1);
+		p->len++;
 		*aux *= (-1);
 	}
 	while ((p->n_sp - *len) > 0)
 	{
 		write(1, "0", 1);
+		p->len++;
 		p->n_sp--;
 	}
 }
@@ -53,7 +56,7 @@ void	parse_and_print_2(t_listpf *p)
 		realspace--;
 	}
 	print2(p, &realspace, &aux, &len);
-	ft_putnbr_ptf(aux);
+	ft_putnbr_ptf(aux, p);
 }
 
 void	print3(t_listpf *p, int *aux, int *len)
@@ -61,14 +64,16 @@ void	print3(t_listpf *p, int *aux, int *len)
 	if (*aux < 0)
 	{
 		write(1, "-", 1);
+		p->len++;
 		*aux *= (-1);
 	}
 	while ((p->n_sp - *len) > 0)
 	{
 		write(1, "0", 1);
+		p->len++;
 		p->n_sp--;
 	}
-	ft_putnbr_ptf(*aux);
+	ft_putnbr_ptf(*aux, p);
 }
 
 void	parse_and_print_3(t_listpf *p)
@@ -95,7 +100,7 @@ void	parse_and_print_3(t_listpf *p)
 	print3(p, &aux, &len);
 	while (realspace > 0)
 	{
-		write(1, " ", 1);
+		ft_putchar_fd(' ', p);
 		realspace--;
 	}
 }
@@ -111,9 +116,11 @@ void	write_and_parsed(t_listpf *p)
 	}
 	else if (p->less == 1 && p->n_sp == 0)
 		parse_and_print_lessd(p);
-	else if (p->ns == 0 || p->n_sp == 0)
+	else if ((p->ns == 0 || p->n_sp == 0) && p->point == 0)
 		parse_and_printd(p);
 	else if (p->less == 1 && (p->ns >= p->n_sp))
 		parse_and_print_3(p);
+	else if ((p->ns > p->n_sp) && p->point == 1)
+		parse_and_printd(p);
 	p->i++;
 }
