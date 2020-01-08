@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 18:25:16 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/07 16:09:22 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/08 12:47:09 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 typedef struct	s_listpf
 {
+	int intaux;
 	char *aux; // aux
 	va_list ap;
 	int zeros; // indicador para saber si tengo que rellenar con ceros o no;
@@ -37,9 +38,9 @@ int				ft_printf(const char *s, ...);
 void 			checkflags(const char *s, t_listpf *p);
 void			put_valors(t_listpf *p);
 void			ft_putnbr_ptf(int n, t_listpf *p);
-void 			parse_and_printd(t_listpf *p);
+void 			parse_and_printd(t_listpf *p, const char *s);
 void			parse_and_print_lessd(t_listpf *p);
-void			write_and_parsed(t_listpf *p);
+void			write_and_parsed(t_listpf *p, const char *s);
 void			write_and_parse_c(t_listpf *p);
 void			write_and_parse_s(t_listpf *p);
 void			write_and_parse_x(t_listpf *p, const char *s);
@@ -52,4 +53,7 @@ size_t			ft_strlen(const char *s);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd, t_listpf *p);
 void			ft_putchar_fd(char c, t_listpf *p);
+void			ft_putnbr_ptfu(unsigned long int n, t_listpf *p);
+void			calculate_u(int *realspace, unsigned long int *u, t_listpf *p);
+void			parse_and_print_u(t_listpf *p);
 #endif

@@ -6,12 +6,46 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 18:28:28 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/07 16:05:57 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/08 12:36:47 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
+
+void	calculate_u(int *realspace, unsigned long int *u, t_listpf *p)
+{
+	int 	len;
+	char	*temp;
+	
+	temp = ft_itoa(*u);
+	len = ft_strlen(temp);
+	free(temp);
+	temp = NULL;
+
+	if (*u == 0 && p->point == 1 && p->n_sp == 0)
+		*realspace = p->ns;
+	else if (p->ns != 0)
+		*realspace = p->ns - len;
+	else
+		*realspace = p->n_sp - len;
+}
+
+void	ft_putnbr_ptfu(unsigned long int n, t_listpf *p)
+{
+	char i;
+
+	if (n < 0)
+		ft_putnbr_ptfu(n * (-1), p);
+	else
+	{
+		if (n >= 10)
+			ft_putnbr_ptfu((n / 10), p);
+		i = (n % 10) + '0';
+		write(1, &i, 1);
+		p->len++;
+	}
+}
 
 int		numcarhex(long int n)
 {
@@ -85,8 +119,8 @@ void	ft_putnbr_ptf(int n, t_listpf *p)
 
 void	write_and_parse(const char *s, t_listpf *p)
 {
-	if (*s == 'd' || *s == 'i')
-		write_and_parsed(p);
+	if (*s == 'd' || *s == 'i' || *s == 'u')
+		write_and_parsed(p, s);
 	if (*s == 's')
 		write_and_parse_s(p);
 	if (*s ==  'c')

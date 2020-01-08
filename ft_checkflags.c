@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 14:59:52 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/07 18:09:36 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/08 15:09:13 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ void	activate_flag(const char *s, t_listpf *p)
 {
 	if (*s == '0')
 	{
-		p->zeros = 1;
+		if (p->less == 0)
+			p->zeros = 1;
 		p->i++;
 	}
 	if (*s == '-')
