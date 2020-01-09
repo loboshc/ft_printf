@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 18:25:16 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/09 17:56:09 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/09 21:21:41 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,5 @@ void			ft_putnbr_ptfu(unsigned long int n, t_listpf *p);
 void			calculate_u(int *realspace, unsigned long int *u, t_listpf *p);
 void			parse_and_print_u(t_listpf *p);
 void			write_and_parse_p(t_listpf *p);
+void			write_pct(t_listpf *p);
 #endif

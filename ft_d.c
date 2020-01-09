@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 15:43:15 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/08 12:49:55 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/09 20:55:46 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,28 @@ void	parse_and_print_lessd(t_listpf *p)
 	int		aux;
 	char	*temp;
 	int		len;
-	int		realspace;
 
+	aux = va_arg(p->ap, int);
 	if (p->ns != 0)
 	{
-		aux = va_arg(p->ap, int);
 		temp = ft_itoa(aux);
 		len = ft_strlen(temp);
 		free(temp);
 		temp = NULL;
-		realspace = p->ns - len;
+		p->realspace = p->ns - len;
 		if (p->point == 1 && p->n_sp == 0)
-			realspace = p->ns;
+			p->realspace = p->ns;
 		else
 			ft_putnbr_fd(aux, 1, p);
-		while (realspace > 0)
+		while (p->realspace > 0)
 		{
 			write(1, " ", 1);
 			p->len++;
-			realspace--;
+			p->realspace--;
 		}
 	}
+	else
+		ft_putnbr_fd(aux, 1, p);
 }
 
 void	calculated(t_listpf *p)

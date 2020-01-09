@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 14:59:52 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/09 16:10:13 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/09 21:21:36 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,11 @@ void	checkflags(const char *s, t_listpf *p)
 		if (s[p->i] == '*')
 		{
 			p->ns = va_arg(p->ap, int);
-			p->width = 1;
+			if (p->ns < 0)
+			{
+				p->less = 1;
+				p->ns *= (-1);
+			}
 			p->i++;
 		}
 		if (ft_isdigit(s[p->i]))

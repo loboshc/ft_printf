@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/30 17:24:24 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/08 14:50:05 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/09 21:21:39 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	calculate_total(t_listpf *p, int *total, int *len)
 		*total = p->ns;
 	else if (p->n_sp > 0 && p->ns > p->n_sp)
 		*total = p->ns;
-	else if (p->point > 0 && p->ns > p->n_sp)
+	else if (p->point > 0 && p->n_sp >= 0 && p->ns > p->n_sp)
 		*total = p->ns;
 	else if (p->n_sp > 0)
 		*total = p->n_sp;
