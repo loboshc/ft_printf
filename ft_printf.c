@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 18:28:28 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/08 12:36:47 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/09 18:23:13 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,13 @@ int		numcarhex(long int n)
 	return (i);
 }
 
-char	*ft_itoahex(int n, const char *s)
+char	*ft_itoahex(unsigned long int n, const char *s)
 {
 	long int		i;
 	char			*pnt;
-	unsigned int	num;
+	unsigned long int	num;
 
-	num = (long int)n;
+	num = n;
 	i = numcarhex(num);
 	if (!(pnt = malloc((i + 1) * sizeof(char))))
 		return (0);
@@ -86,10 +86,10 @@ char	*ft_itoahex(int n, const char *s)
 	{
 		if (num % 16 < 10)
 			pnt[i] = (num % 16) + '0';
-		else if (num % 16 >= 10 && *s == 'x')
-			pnt[i] = (num % 16) + 87;
 		else if (num % 16 >= 10 && *s == 'X')
 			pnt[i] = (num % 16) + 55;
+		else if (num % 16 >= 10)
+			pnt[i] = (num % 16) + 87;
 		num = num / 16;
 	}
 	return (pnt);
@@ -125,7 +125,7 @@ void	write_and_parse(const char *s, t_listpf *p)
 		write_and_parse_s(p);
 	if (*s ==  'c')
 		write_and_parse_c(p);
-	if (*s == 'x' || *s == 'X')
+	if (*s == 'x' || *s == 'X' || *s == 'p')
 		write_and_parse_x(p, s);
 }
 
