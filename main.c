@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 19:20:07 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/09 21:21:40 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/10 20:27:44 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -358,11 +358,48 @@ int		main()
 	printf("O: %-.5X$\n\n",i);
 	*/
 
+	ft_printf("TEST 1 x\n");
+	ft_printf("M: %x\n", 4294967300);
+	printf("O: %x\n\n", 4294967300);
 
-	ft_printf("M: %.*s$\n", -4, "hello");
-	printf("O: %.*s$", -4, "hello");
+	ft_printf("TEST 2 x\n");
+	ft_printf("M: %X\n", 4294967296);
+	printf("O: %X\n\n", 4294967296);
+	
+	ft_printf("TEST 3 u\n");
+	ft_printf("M: %u$\n", -1);
+	printf("O: %u$\n\n", -1);
 
+	ft_printf("TEST 4 u\n");
+	ft_printf("M: %u$\n", 4294967298);
+	printf("O: %u$\n\n", 4294967298);
 
+	ft_printf("TEST 5 u\n");
+	ft_printf("M: %5u$\n", 4294967295);
+	printf("O: %5u$\n\n", 4294967295);
+
+	ft_printf("TEST 6 u\n");
+	ft_printf("M: %15u$\n", 4294967295);
+	printf("O: %15u$\n\n", 4294967295);
+
+	ft_printf("TEST 7 u\n");
+	ft_printf("M: %-15u$\n", 4294967295);
+	printf("O: %-15u$\n\n", 4294967295);
+
+	ft_printf("TEST 8 u\n");
+	ft_printf("M: %015u\n", 4294967295);
+	printf("O: %015u\n\n", 4294967295);
+
+	ft_printf("TEST 9 u\n");
+	ft_printf("M: %x\n", -42);
+	printf("O: %x\n\n", -42);
+	
+	ft_printf("TEST 10 u\n");
+	ft_printf("M: %X\n", -42);
+	printf("O: %X\n\n", -42);
+
+	ft_printf("M: %-7i$\n", -14);
+	printf("O: %-7i", -14);
 
 	return (0);
 }

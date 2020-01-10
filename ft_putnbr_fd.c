@@ -6,13 +6,13 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 18:24:04 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/07 16:10:29 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/10 20:27:41 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putnbr_fd(int n, int fd, t_listpf *p)
+void	ft_putnbr_fd(intmax_t n, int fd, t_listpf *p)
 {
 	char i;
 

@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/30 17:24:24 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/09 21:21:39 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/10 17:36:54 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int		calculate(t_listpf *p)
 
 void	calculate_total(t_listpf *p, int *total, int *len)
 {
-	if (p->ns > 0 && p->ns > *len)
+	if (p->ns > 0 && p->ns > *len && p->n_sp >= 0)
 		*total = p->ns;
 	else if (p->n_sp > 0 && p->ns > p->n_sp)
 		*total = p->ns;
@@ -92,7 +92,10 @@ void	write_and_parse_s(t_listpf *p)
 		i++;
 		p->realspace++;
 	}
-	p->realspace -= i;
+	if (p->n_sp >= 0)
+		p->realspace -= i;
+	else
+		p->realspace -= i + len;
 	if (p->ns > 0 && p->less == 1)
 		print_spaces(p->realspace, p);
 	p->i++;

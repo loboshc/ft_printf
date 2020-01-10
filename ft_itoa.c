@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 19:04:38 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/07 15:12:00 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/10 20:23:24 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ int		numcar(long int n)
 	return (i);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(long long n)
 {
 	long int	i;
 	char		*pnt;
-	long int	num;
+	long long	num;
 
-	num = (long int)n;
+	num = n;
 	i = numcar(num);
 	if (!(pnt = malloc((i + 1) * sizeof(char))))
 		return (0);

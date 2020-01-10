@@ -6,34 +6,34 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 15:43:15 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/09 20:55:46 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/10 20:27:40 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	parse_and_print_lessd(t_listpf *p)
+void	parse_and_print_lessd(t_listpf *p, const char *s)
 {
-	int		aux;
-	char	*temp;
-	int		len;
+	long long	aux;
+	char		*temp;
+	int			len;
 
-	aux = va_arg(p->ap, int);
+	if (*s == 'u')
+		aux = va_arg(p->ap, long long);
+	else
+		aux = va_arg(p->ap, int);
 	if (p->ns != 0)
 	{
 		temp = ft_itoa(aux);
 		len = ft_strlen(temp);
-		free(temp);
-		temp = NULL;
-		p->realspace = p->ns - len;
+		ft_del(temp, p, len);
 		if (p->point == 1 && p->n_sp == 0)
 			p->realspace = p->ns;
 		else
 			ft_putnbr_fd(aux, 1, p);
 		while (p->realspace > 0)
 		{
-			write(1, " ", 1);
-			p->len++;
+			ft_putchar_fd(' ', p);
 			p->realspace--;
 		}
 	}
