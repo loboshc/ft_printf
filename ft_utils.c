@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 17:49:31 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/10 20:27:34 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/13 19:47:20 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_putnbr_ptfu(unsigned long int n, t_listpf *p)
 	}
 }
 
-int		numcarhex(long int n)
+int		numcarhex(unsigned long int n)
 {
 	long int i;
 

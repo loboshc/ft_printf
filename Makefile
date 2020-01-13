@@ -26,13 +26,6 @@ $(NAME): $(SRC) ft_printf.h
 	gcc -Wall -Werror -Wextra $(SRC) -c
 	ar rc ${NAME} $(OBJ)
 	ranlib $(NAME)
-normi:
-	norminette $(SRC)
-run:
-	gcc $(SRC) $(MAIN) 
-	./a.out
-debug:
-	gcc $(SRC) $(MAIN) -g
 clean:
 	rm -f $(OBJ)
 fclean: clean

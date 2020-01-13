@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 18:25:16 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/10 20:27:43 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/12 17:06:04 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,25 @@
 
 typedef struct	s_listpf
 {
-	int intaux;
-	char *aux;
-	va_list ap;
-	int zeros;
-	int less; 
-	int i;
-	int ns;
-	int width;
-	int point;
-	int realspace;
-	int len;
-	int n_sp;
+	int			intaux;
+	char		*aux;
+	va_list		ap;
+	int			zeros;
+	int			less;
+	int			i;
+	int			ns;
+	int			width;
+	int			point;
+	int			realspace;
+	int			len;
+	int			n_sp;
 }				t_listpf;
 
 int				ft_printf(const char *s, ...);
-void 			checkflags(const char *s, t_listpf *p);
+void			checkflags(const char *s, t_listpf *p);
 void			put_valors(t_listpf *p);
 void			ft_putnbr_ptf(int n, t_listpf *p);
-void 			parse_and_printd(t_listpf *p, const char *s);
+void			parse_and_printd(t_listpf *p, const char *s);
 void			parse_and_print_lessd(t_listpf *p, const char *s);
 void			write_and_parsed(t_listpf *p, const char *s);
 void			write_and_parse_c(t_listpf *p);
@@ -60,5 +60,5 @@ void			parse_and_print_u(t_listpf *p);
 void			write_and_parse_p(t_listpf *p);
 void			write_pct(t_listpf *p);
 void			ft_putchar_main(const char *s, t_listpf *p);
-void			ft_del(char *temp, t_listpf  *p, int len);
+void			ft_del(char *temp, t_listpf *p, int len);
 #endif

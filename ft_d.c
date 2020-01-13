@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 15:43:15 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/10 20:27:40 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/12 19:24:05 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	parse_and_print_lessd(t_listpf *p, const char *s)
 	int			len;
 
 	if (*s == 'u')
-		aux = va_arg(p->ap, long long);
+		aux = va_arg(p->ap, unsigned int);// unsigned int
 	else
 		aux = va_arg(p->ap, int);
 	if (p->ns != 0)
