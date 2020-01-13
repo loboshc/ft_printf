@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 16:10:36 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/10 20:27:39 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/13 22:52:22 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void	parse_and_print_3(t_listpf *p)
 
 void	write_and_parsed(t_listpf *p, const char *s)
 {
-	if (p->n_sp != 0 && (p->ns >= p->n_sp) && p->less == 0)
+	if (p->n_sp > 0 && (p->ns >= p->n_sp) && p->less == 0)
 		parse_and_print_2(p);
 	else if (p->ns < p->n_sp)
 	{
@@ -121,6 +121,8 @@ void	write_and_parsed(t_listpf *p, const char *s)
 	else if (p->less == 1 && (p->ns >= p->n_sp))
 		parse_and_print_3(p);
 	else if ((p->ns > p->n_sp) && p->point == 1)
+		parse_and_printd(p, s);
+	else if (p->point == 1 && p->ns == 0  && p->n_sp == 0)
 		parse_and_printd(p, s);
 	p->i++;
 }
