@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 14:59:52 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/10 20:27:38 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/15 16:24:29 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	save_data_num_point(t_listpf *p, const char *s)
 
 int		isflag(const char *s)
 {
-	if (*s == '0' || *s == '-')
+	if (*s == '0' || *s == '-' || *s == ' ')
 		return (1);
 	return (0);
 }
@@ -72,6 +72,8 @@ void	activate_flag(const char *s, t_listpf *p)
 		p->i++;
 		p->zeros = 0;
 	}
+	if (*s == ' ')
+		p->i++;
 }
 
 void	checkflags(const char *s, t_listpf *p)

@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 18:25:16 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/12 17:06:04 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/15 16:03:39 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ size_t			ft_strlen(const char *s);
 void			ft_putstr_fd(char *s, int fd, t_listpf *p);
 void			ft_putnbr_fd(intmax_t n, int fd, t_listpf *p);
 void			ft_putchar_fd(char c, t_listpf *p);
-void			ft_putnbr_ptfu(unsigned long int n, t_listpf *p);
-void			calculate_u(int *realspace, unsigned long int *u, t_listpf *p);
+void			ft_putnbr_ptfu(uintmax_t n, t_listpf *p);
+void			calculate_u(int *realspace, unsigned int u, t_listpf *p);
 void			parse_and_print_u(t_listpf *p);
 void			write_and_parse_p(t_listpf *p);
 void			write_pct(t_listpf *p);

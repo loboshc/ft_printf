@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 16:10:36 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/13 22:52:22 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/15 14:02:45 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,27 +36,31 @@ void	print2(t_listpf *p, int *realspace, int *aux, int *len)
 
 void	parse_and_print_2(t_listpf *p)
 {
-	int		aux;
-	char	*temp;
+	int		auxint;
 	int		len;
 	int		realspace;
 
-	aux = va_arg(p->ap, int);
-	temp = ft_itoa(aux);
-	len = ft_strlen(temp);
-	free(temp);
-	temp = NULL;
+	auxint = va_arg(p->ap, int);
+	p->aux = ft_itoa(auxint);
+	len = ft_strlen(p->aux);
+	free(p->aux);
+	p->aux = NULL;
 	if (len > p->n_sp)
-		realspace = (aux < 0) ? (p->ns - len) + 1 : (p->ns - len);
+		realspace = (auxint < 0) ? (p->ns - len) + 1 : (p->ns - len);
 	else
 		realspace = p->ns - p->n_sp;
-	if (aux < 0)
+	if (auxint < 0)
 	{
 		len--;
 		realspace--;
 	}
-	print2(p, &realspace, &aux, &len);
-	ft_putnbr_ptf(aux, p);
+	print2(p, &realspace, &auxint, &len);
+	if (auxint != 0)
+		ft_putnbr_ptf(auxint, p);
+	else if ((p->point == 0 && p->zeros == 0) || (p->point > 0 && p->n_sp == 0))
+		ft_putchar_fd(' ', p);
+	else
+		ft_putchar_fd('0', p);
 }
 
 void	print3(t_listpf *p, int *aux, int *len)
@@ -117,12 +121,19 @@ void	write_and_parsed(t_listpf *p, const char *s)
 	else if (p->less == 1 && p->n_sp == 0)
 		parse_and_print_lessd(p, s);
 	else if ((p->ns == 0 || p->n_sp == 0) && p->point == 0)
-		parse_and_printd(p, s);
+	{
+		if (*s == 'u')
+			parse_and_print_u(p);
+		else
+			parse_and_printd(p, s);
+	}
 	else if (p->less == 1 && (p->ns >= p->n_sp))
 		parse_and_print_3(p);
-	else if ((p->ns > p->n_sp) && p->point == 1)
+	else if ((p->ns > p->n_sp) && p->point == 1 && p->n_sp != 0)
 		parse_and_printd(p, s);
-	else if (p->point == 1 && p->ns == 0  && p->n_sp == 0)
+	else if (p->point == 1 && p->ns == 0 && p->n_sp == 0)
 		parse_and_printd(p, s);
+	else if (p->point > 0 && p->n_sp == 0)
+		parse_and_print_2(p);
 	p->i++;
 }

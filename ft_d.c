@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 15:43:15 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/13 22:39:16 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/15 15:32:11 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,10 @@ void	parse_and_printd(t_listpf *p, const char *s)
 void	parse_and_print_u(t_listpf *p)
 {
 	int					realspace;
-	unsigned long int	u;
+	unsigned int		u;
 
-	u = va_arg(p->ap, unsigned long int);
-	calculate_u(&realspace, &u, p);
+	u = va_arg(p->ap, unsigned int);
+	calculate_u(&realspace, u, p);
 	while (realspace > 0)
 	{
 		if (p->zeros == 1 || (p->point == 1 && p->ns == 0))

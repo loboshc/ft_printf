@@ -6,22 +6,22 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 17:49:31 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/13 19:47:20 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/15 16:03:00 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	calculate_u(int *realspace, unsigned long int *u, t_listpf *p)
+void	calculate_u(int *realspace, unsigned int u, t_listpf *p)
 {
 	int		len;
 	char	*temp;
 
-	temp = ft_itoa(*u);
+	temp = ft_itoa(u);
 	len = ft_strlen(temp);
 	free(temp);
 	temp = NULL;
-	if (*u == 0 && p->point == 1 && p->n_sp == 0)
+	if (u == 0 && p->point == 1 && p->n_sp == 0)
 		*realspace = p->ns;
 	else if (len < 0)
 		*realspace = 0;
@@ -35,18 +35,13 @@ void	ft_putnbr_ptfu(unsigned long int n, t_listpf *p)
 {
 	char i;
 
-	if (n < 0)
-		ft_putnbr_ptfu(n * (-1), p);
-	else
-	{
-		if (n >= 4294967296)
-			n -= 4294967296;
-		else if (n >= 10)
-			ft_putnbr_ptfu((n / 10), p);
-		i = (n % 10) + '0';
-		write(1, &i, 1);
-		p->len++;
-	}
+	if (n >= 4294967296 || n < 0)
+		n -= 4294967296;
+	if (n >= 10)
+		ft_putnbr_ptfu((n / 10), p);
+	i = (n % 10) + '0';
+	write(1, &i, 1);
+	p->len++;
 }
 
 int		numcarhex(unsigned long int n)

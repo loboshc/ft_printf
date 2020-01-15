@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 20:11:51 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/13 19:52:59 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/15 16:05:52 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	print_zeros(int realspace, t_listpf *p, int len)
 	}
 }
 
-void	ft_select(unsigned long int *aux, const char *s, t_listpf *p)
+void	ft_select(uintmax_t *aux, const char *s, t_listpf *p)
 {
 	if (*s == 'p')
 		*aux = va_arg(p->ap, unsigned long);
@@ -81,7 +81,7 @@ void	ft_select(unsigned long int *aux, const char *s, t_listpf *p)
 void	write_and_parse_x(t_listpf *p, const char *s)
 {
 	int					len;
-	unsigned long int	aux;
+	uintmax_t			aux;
 
 	p->i++;
 	ft_select(&aux, s, p);
