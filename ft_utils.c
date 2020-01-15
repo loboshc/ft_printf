@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 17:49:31 by dlobos-m          #+#    #+#             */
-/*   Updated: 2020/01/15 16:03:00 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2020/01/15 16:57:55 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	calculate_u(int *realspace, unsigned int u, t_listpf *p)
 		*realspace = p->n_sp - len;
 }
 
-void	ft_putnbr_ptfu(unsigned long int n, t_listpf *p)
+void	ft_putnbr_ptfu(uintmax_t n, t_listpf *p)
 {
 	char i;
 
